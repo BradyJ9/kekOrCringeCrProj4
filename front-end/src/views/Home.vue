@@ -6,7 +6,7 @@
     <p style="font-size: 20px"><em>Comedy is subjective, so they say...<br>But the court of public opinion will forever serve as the oracle of truth.</em>
     </p>
     <div class="footer">
-      <a href="https://github.com/BradyJ9/kekOrCringeCrProj3">Github Repo</a>
+      <a href="https://github.com/BradyJ9/kekOrCringeCrProj4">Github Repo</a>
     </div>
   </div>
 </template>

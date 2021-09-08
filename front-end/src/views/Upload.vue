@@ -11,7 +11,7 @@
       <p></p>
       <input style="align-self: center; justify-self: center;" type="file" name="photo" @change="fileChanged">
       <p></p>
-      <button>Upload</button>
+      <button @click="upload">Upload</button>
     </div>
     <div class="upload" v-if="addItem">
       <h2>{{addItem.title}}</h2>
@@ -19,7 +19,7 @@
     </div>
   </div>
     <div class="footer">
-      <a href="https://github.com/BradyJ9/kekOrCringeCrProj3">Github Repo</a>
+      <a href="https://github.com/BradyJ9/kekOrCringeCrProj4">Github Repo</a>
     </div>
 </div>
 </template>
@@ -37,12 +37,6 @@ export default {
       addItem: null,
     }
   },
-  computed: {
-
-  },
-  created() {
-    this.getItems();
-  },
   methods: {
     fileChanged(event) {
       this.file = event.target.files[0]
@@ -52,10 +46,11 @@ export default {
         const formData = new FormData();
         formData.append('photo', this.file, this.file.name)
         let r1 = await axios.post('/api/photos', formData);
-        let r2 = await axios.post('/api/items', {
+        let r2 = await axios.post('/api/posts', {
           title: this.title,
           path: r1.data.path,
-          description: this.description
+          description: this.description,
+          author: this.author,
         });
         this.addItem = r2.data;
       } catch (error) {
